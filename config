@@ -1,0 +1,31 @@
+#!/bin/bash
+
+# Get current directory and set scripts
+export DIR=$(pwd)
+export FINGERER=$DIR/fingerer.sh
+export D_FINGERER=$DIR/test_deep.sh
+export STALKER=$DIR/stalker.py
+# Used to pass environment variable through ssh
+export LC_STALKER=$STALKER
+export ANAL=$DIR/anal-izer.sh
+
+# default values for spying
+export TOWER=31
+export ROOM=201
+export STATION=$(seq 1 15)
+export FILE=
+
+# Other options
+export VERBOSE=0
+export DEEP=0
+export WRITER=">>"
+
+# Help function
+hhelp()
+{
+  echo    "Usage: ./spy <options> <tower> <room>"
+  echo    "Available options: -v | --verbose: set verbose mode"
+  echo    "                   -d | --deep:    set deep analyze mode"
+  echo    "                   -o | --output <filename>"
+  echo    "Default tower and room are 31 201"
+}
