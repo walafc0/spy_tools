@@ -1,10 +1,20 @@
 #!/bin/bash
 
+clear
+
+# Used to pass environment variable through ssh
+export LC_FILE=$DIR/$FILE
+
+if [[ $DEEP -eq 1 ]]; then
+  echo -e "Deep mode: ON.\nSee $LC_FILE for result\n"
+fi
+
 for CURRENT_TOWER in $TOWER; do
 
   for CURRENT_ROOM in $ROOM; do
 
-    eval echo -e "Analyze room $CURRENT_TOWER-$CURRENT_ROOM $WRITER $DIR/$FILE"
+    eval echo -e "Analyze room $CURRENT_TOWER-$CURRENT_ROOM"
+    echo -e "=======\n"
 
     for CURRENT_STATION in $STATION; do
 
@@ -31,6 +41,8 @@ for CURRENT_TOWER in $TOWER; do
           eval echo -e $RESULT $WRITER $DIR/$FILE
 	fi
       fi
+
+      echo ""
 
     done;
 
